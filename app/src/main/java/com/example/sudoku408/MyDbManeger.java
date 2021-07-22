@@ -16,8 +16,8 @@ public class MyDbManeger {
     private static SQLiteDatabase db;
 
 //    Счетчик для добавления 100 пользователю в счет
-    private String name_dbScore = "Player";
-    private int score_db = 2;
+    private String name_dbScore = "User";
+    private int score_db = 4;
 
     final String LOG_TAG = "myLogs";
 
@@ -45,11 +45,11 @@ public class MyDbManeger {
 
     }
 
-    public void del_and_insert_db(String name, String score, String id) {
+    public void del_and_insert_db() {
         ContentValues cv = new ContentValues();
 //      Код на удаление и добавление записи в бд
 
-        MyConstants.test += 100;
+        MyConstants.test += 12;
 
         int delCount = db.delete(MyConstants.TABLE_CONTACTS, "id = " + Integer.toString(score_db), null);
         Log.d(LOG_TAG, "deleted rows count = " + delCount);
@@ -58,7 +58,7 @@ public class MyDbManeger {
         cv.put(MyConstants.KEY_SCORE, MyConstants.test);
         db.insert(MyConstants.TABLE_CONTACTS, null, cv);
 
-//        score_db++;
+        score_db++;
 
         String b = String.valueOf(score_db);
         Log.d(LOG_TAG, b);

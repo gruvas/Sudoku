@@ -55,19 +55,6 @@ public class Solver extends AppCompatActivity {
         super.onResume();
         myDbManeger.openDb();
 
-
-//        for (String name : myDbManeger.getFromOb()) {
-//            for(String score : myDbManeger.getFromScore()) {
-//                if(score_if == score_obj){
-//                    test_show.append(place + ". " + name + "                       " + score + "\n" + "\n");
-//                    place++;
-//                }else{
-//                    score_if++;
-//                }
-//            }
-//            score_obj++;
-//        }
-
         for (String name : myDbManeger.getFromOb()) {
             place--;
         }
@@ -107,7 +94,7 @@ public class Solver extends AppCompatActivity {
     public void onClick_100(View view) {
 //        myDbManeger.updateToDb(test_name.getText().toString(), test_score.getText().toString(), test_id.getText().toString());
 
-        myDbManeger.del_and_insert_db("user", "100", "0");
+        myDbManeger.del_and_insert_db();
     }
 
     public void Exit_to_Menu(View view) {

@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sudoku408">
         <activity android:name=".difName"></activity>
-        <activity android:name=".Rating" />
-        <activity android:name=".Solver" />
-        <activity android:name=".Sudoku" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Rating"/>
+        <activity android:name=".Solver"/>
+        <activity android:name=".Sudoku"/>
+        <activity android:name=".MainActivity" android:noHistory="true">
 
             <!-- <activity android:name=".Main">  Стандарт код выше: android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round"-->
 

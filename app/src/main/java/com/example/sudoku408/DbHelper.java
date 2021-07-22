@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DbHelper extends SQLiteOpenHelper{
-
+//King_of_DataBas
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "King_of_DataBas";
     public static final String TABLE_CONTACTS = "contacts";
@@ -39,9 +39,9 @@ public class DbHelper extends SQLiteOpenHelper{
         db.insert(TABLE_CONTACTS, null, values);
         values.put(KEY_ID, "2"); values.put(KEY_NAME, "Elite"); values.put(KEY_SCORE, "1120");
         db.insert(TABLE_CONTACTS, null, values);
-        values.put(KEY_ID, "3"); values.put(KEY_NAME, "WindKing"); values.put(KEY_SCORE, "12");
+        values.put(KEY_ID, "3"); values.put(KEY_NAME, "Princess"); values.put(KEY_SCORE, "998");
         db.insert(TABLE_CONTACTS, null, values);
-        values.put(KEY_ID, "4"); values.put(KEY_NAME, "Princess"); values.put(KEY_SCORE, "998");
+        values.put(KEY_ID, "4"); values.put(KEY_NAME, "User"); values.put(KEY_SCORE, "12");
         db.insert(TABLE_CONTACTS, null, values);
     }
 

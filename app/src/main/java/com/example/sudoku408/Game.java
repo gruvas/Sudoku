@@ -33,6 +33,7 @@ public class Game extends ArrayAdapter  {
     public final String Difficult ="Easy";
 
     Context mContext;
+    MyDbManeger myDbManeger;
     Random random = new Random();
 
 
@@ -73,11 +74,11 @@ public class Game extends ArrayAdapter  {
             Zero = Zero - Diff;
         }
         Transparent(Sudoku, N);
-        for (int i = 0; i < 65;i++)
+        for (int i = 0; i < 5;i++)
             SwapStr(Sudoku, N);
-        for (int i = 0; i < 35; i++)
+        for (int i = 0; i < 5; i++)
             SwapCol(Sudoku, N);
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 5; i++)
             SwapNumber(Sudoku, N);
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -95,7 +96,6 @@ public class Game extends ArrayAdapter  {
             }
         }
         Change_cells(Sudoku_convert);
-
     }
     public void Transparent(int[][] Sudoku, int N) {
         for (int str = 0; str < N; str++) {
@@ -151,13 +151,7 @@ public class Game extends ArrayAdapter  {
                 System.out.println("Не совпадают: i = " + position / 9 + " j = " + position % 9 + " Числа: " + Sudoku_temp[position / 9][position % 9] + ", " + Integer.parseInt(Sudoku_convert[position]));
                 return Sudoku_convert[position];
             }
-            // Конец проверки на решение судоку
-            for (int i = 0; i < 81; i++) {
-                if (i == 80 && Sudoku_convert[i] != " ")
-                    Toast.makeText(mContext, "Уряя! Вы победили!!!", Toast.LENGTH_SHORT).show();
-                else if (Sudoku_convert[i] == " ")
-                    return "";
-            }
+            Sudoku_check(Sudoku_convert);
             return "";
         }
     }
@@ -346,5 +340,25 @@ public class Game extends ArrayAdapter  {
             if (Integer.parseInt(Sudoku_convert[i]) == 0)
                 Sudoku_convert[i] = " ";
         }
+    }
+    public String Sudoku_check(String[] sudoku_convert) {
+        int Error = 0;
+        int Except = 0;
+        for (int i = 0; i < 81; i++) {
+            if (Sudoku_convert[i] == " ")
+                Except++;
+            if (Sudoku_convert[i] != " ") {
+                if (Sudoku_temp[i / 9][i % 9] != Integer.parseInt(Sudoku_convert[i])) {
+                    Error++;
+                    Except--;
+                }
+            }
+        }
+        if (Error == 0 && Except == 0) {
+            myDbManeger.del_and_insert_db();
+            Toast.makeText(mContext, "Вы победили!!!", Toast.LENGTH_SHORT).show();
+        }
+
+        return "";
     }
 }

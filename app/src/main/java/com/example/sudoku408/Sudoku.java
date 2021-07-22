@@ -89,13 +89,12 @@ public class Sudoku extends AppCompatActivity  implements AdapterView.OnItemSele
                     mGridView.setAdapter(mGame);
                     break;
                 case R.id.Exit_to_change:
-                    Intent i = new Intent(this, MainActivity.class);
+                    Intent i = new Intent(this, difName.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                     this.finish();
                     break;
             }
         } catch (Exception e){};
-
     }
 }
